@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['batteryrecycle.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['batteryrecycle-b7cc92dbb1d0.herokuapp.com', 'localhost']
 
 
 # Application definition
