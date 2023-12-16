@@ -49,7 +49,7 @@ class Post(models.Model):
         return self.likes.count()
 
 
-class comment(models.Model):
+class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
