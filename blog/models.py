@@ -20,6 +20,7 @@ class UserProfile(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
     details = models.TextField(blank=True)
+    categories_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):
         return self.name
