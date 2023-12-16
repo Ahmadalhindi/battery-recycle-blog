@@ -5,10 +5,13 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
-    profile_image = CloudinaryField('profile_image', default='default_image.jpg')
+    profile_image = CloudinaryField(
+        'profile_image', default='default_image.jpg')
 
     def __str__(self):
         return self.user.username
@@ -25,7 +28,8 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blog_posts")
     categories = models.ForeignKey(Category, on_delete=models.CASCADE)
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
@@ -37,7 +41,7 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['created_at']
-    
+
     def __str__(self):
         return self.title
 
